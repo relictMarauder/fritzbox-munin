@@ -28,8 +28,8 @@ pattern = re.compile(".*/(StatCPU)\".*=.*\"(.*?)\"")
 def get_cpu_usage():
     """get the current cpu usage"""
 
-    server = os.environ['fritzbox_ip']
-    password = os.environ['fritzbox_password']
+    server = ${node.metadata['collectd'].get('fritzbox', {}).get('ip', '192.168.168.1')}
+    password = ${node.metadata['collectd'].get('fritzbox', {}).get('password', 'fritzbox')}
 
     sid = fh.get_sid(server, password)
     data = fh.get_page(server, sid, PAGE)

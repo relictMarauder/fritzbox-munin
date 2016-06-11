@@ -28,8 +28,8 @@ pattern = re.compile('Query\s=\s"(\d{1,3})')
 def get_cpu_temperature():
     """get the current cpu temperature"""
 
-    server = os.environ['fritzbox_ip']
-    password = os.environ['fritzbox_password']
+    server = ${node.metadata['collectd'].get('fritzbox', {}).get('ip', '192.168.168.1')}
+    password = ${node.metadata['collectd'].get('fritzbox', {}).get('password', 'fritzbox')}
 
     sid = fh.get_sid(server, password)
     data = fh.get_page(server, sid, PAGE)

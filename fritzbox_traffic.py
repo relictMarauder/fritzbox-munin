@@ -22,7 +22,7 @@ from fritzconnection import FritzConnection
 
 def print_values():
     try:
-        conn = FritzConnection(address=os.environ['fritzbox_ip'])
+        conn = FritzConnection(address=${node.metadata['collectd'].get('fritzbox', {}).get('ip', '192.168.168.1')})
     except Exception as e:
         sys.exit("Couldn't get WAN traffic")
 

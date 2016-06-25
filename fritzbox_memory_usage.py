@@ -29,8 +29,8 @@ USAGE_MAPPING = {'StatRAMCacheUsed': 'cache', 'StatRAMPhysFree': 'free', 'StatRA
 def get_memory_usage():
     """get the current memory usage"""
 
-    server = ${node.metadata['collectd'].get('fritzbox', {}).get('ip', '192.168.168.1')}
-    password = ${node.metadata['collectd'].get('fritzbox', {}).get('password', 'fritzbox')}
+    server = '${node.metadata['collectd'].get('fritzbox', {}).get('ip', '192.168.168.1')'
+    password = '${node.metadata['collectd'].get('fritzbox', {}).get('password', 'fritzbox')}'
 
     sid = fh.get_sid(server, password)
     data = fh.get_page(server, sid, PAGE)

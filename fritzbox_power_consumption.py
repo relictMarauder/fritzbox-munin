@@ -30,8 +30,8 @@ DEVICE_MAPPING = {'rate_abact': 'ab', 'rate_dspact': 'dsl', 'rate_sumact': 'syst
 def get_power_consumption():
     """get the current power consumption usage"""
 
-    server = ${node.metadata['collectd'].get('fritzbox', {}).get('ip', '192.168.168.1')}
-    password = ${node.metadata['collectd'].get('fritzbox', {}).get('password', 'fritzbox')}
+    server = '${node.metadata['collectd'].get('fritzbox', {}).get('ip', '192.168.168.1')}'
+    password = '${node.metadata['collectd'].get('fritzbox', {}).get('password', 'fritzbox')}'
 
     sid = fh.get_sid(server, password)
     data = fh.get_page(server, sid, PAGE)

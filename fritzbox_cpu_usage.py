@@ -28,8 +28,8 @@ pattern = re.compile('Query1\s=\s"(\d{1,3})')
 def get_cpu_usage():
     """get the current cpu usage"""
 
-    server = ${node.metadata['collectd'].get('fritzbox', {}).get('ip', '192.168.168.1')}
-    password = ${node.metadata['collectd'].get('fritzbox', {}).get('password', 'fritzbox')}
+    server = '${node.metadata['collectd'].get('fritzbox', {}).get('ip', '192.168.168.1')}'
+    password = '${node.metadata['collectd'].get('fritzbox', {}).get('password', 'fritzbox')}'
 
     sid = fh.get_sid(server, password)
     data = fh.get_page(server, sid, PAGE)
